@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<h2>Mascotas de <%= owner.name %></h2>
+<p>Email: <a href="mailto:<%= owner.email %>"><%= owner.email %></a></p>
+
+<% if (ownerPets.length === 0) { %>
+    <p>Este dueño no tiene mascotas registradas.</p>
+<% } else { %>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+        </tr>
+        <% ownerPets.forEach(pet => { %>
+            <tr>
+                <td><%= pet.id %></td>
+                <td><%= pet.name %></td>
+                <td><%= pet.species %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <p>Total: <%= ownerPets.length %> mascotas</p>
+<% } %>
+
+<p><a href="/owner/<%= owner.id %>">Ver ficha del dueño</a> · <a href="/owner/<%= owner.id %>/pets">Recargar</a></p>
+
+<%- include('partials/footer') %>

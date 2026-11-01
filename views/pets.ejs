@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<h2>Todas las mascotas</h2>
+
+<% if (pets.length === 0) { %>
+    <p>No hay mascotas registradas.</p>
+<% } else { %>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Dueño</th>
+        </tr>
+        <% pets.forEach(pet => { %>
+            <tr>
+                <td><%= pet.id %></td>
+                <td><%= pet.name %></td>
+                <td><%= pet.species %></td>
+                <td><a href="/owner/<%= pet.ownerId %>"><%= pet.ownerName %></a></td>
+            </tr>
+        <% }) %>
+    </table>
+    <p>Total de mascotas: <%= pets.length %></p>
+<% } %>
+
+<%- include('partials/footer') %>

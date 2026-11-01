@@ -6,6 +6,7 @@
     <% owners.forEach(o => { %>
         <li>
             <a href="/owner/<%= o.id %>"><%= o.name %></a> - <%= o.email %>
+            <strong>(<%= o.petCount %> mascotas)</strong>
         </li>
     <% }) %>
 </ul>

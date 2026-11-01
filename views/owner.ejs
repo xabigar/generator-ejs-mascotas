@@ -5,24 +5,9 @@
 
 <h3>Mascotas registradas</h3>
 
-<% if (ownerPets.length === 0) { %>
-    <p>Este dueño no tiene mascotas registradas.</p>
-<% } else { %>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Especie</th>
-        </tr>
-        <% ownerPets.forEach(pet => { %>
-            <tr>
-                <td><%= pet.id %></td>
-                <td><%= pet.name %></td>
-                <td><%= pet.species %></td>
-            </tr>
-        <% }) %>
-    </table>
-<% } %>
+<p>
+    <a href="/owner/<%= owner.id %>/pets">Ver las <%= ownerPets.length %> mascotas de <%= owner.name %></a>
+</p>
 
 <h3>Agregar nueva mascota</h3>
 <form action="/pets" method="POST">

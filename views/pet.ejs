@@ -11,12 +11,18 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Especie</th>
+            <th>Acciones</th>
         </tr>
         <% ownerPets.forEach(pet => { %>
             <tr>
                 <td><%= pet.id %></td>
                 <td><%= pet.name %></td>
                 <td><%= pet.species %></td>
+                <td>
+                    <form action="/pets/<%= pet.id %>/delete" method="POST">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
             </tr>
         <% }) %>
     </table>
